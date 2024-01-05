@@ -8,5 +8,5 @@ doc = nlp(text)
 tokens = [token.text.lower() for token in doc if not token.is_stop and token.is_alpha]
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(tokens)
-vectors_array = vectors.toarray()
+vectors_array = X.toarray()
 df = pd.DataFrame(data=vectors_array, columns = vectorizer.get_feature_names_out())
