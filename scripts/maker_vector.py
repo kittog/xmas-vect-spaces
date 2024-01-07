@@ -3,13 +3,8 @@ import spacy
 import gensim
 from sklearn.feature_extraction.text import CountVectorizer
 from maker_corpus_clean import lire_contenu_corpus, pretraiter_donnees
-
-import os
-import spacy
-import gensim
-from sklearn.feature_extraction.text import CountVectorizer
-from maker_corpus_clean import lire_contenu_corpus, pretraiter_donnees
 from sklearn.decomposition import PCA
+
 def vectoriser_word2vec(documents_pretraites):
     model = gensim.models.Word2Vec(sentences=documents_pretraites, vector_size=100, window=5, min_count=1, workers=4)
     
