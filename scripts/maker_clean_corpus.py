@@ -10,14 +10,13 @@ def lire_contenu_corpus(path):
                 contenu = file.read()
                 contenu_corpus.append(contenu)
     return contenu_corpus
-
+    
 def pretraiter_donnees(texte, stop_words_spacy):
-    nlp = spacy.load('en_core_news_sm')
+    nlp = spacy.load('en_core_web_sm')
     doc = nlp(texte)
     tokens = [token.lemma_ for token in doc if token.text.lower() not in stop_words_spacy and not token.is_punct]
-
-    # A voir si on fait un dico/liste ou un fichier texte simple
-    return ' '.join(tokens)
+    cleaned_tokens = [re.sub('\s+', ' ', token).strip() for token in tokens]  # Supprimer les espaces en trop
+    return cleaned_tokens
 
 def main():
     path_corpus = 'bla'
