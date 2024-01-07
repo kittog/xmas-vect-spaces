@@ -39,14 +39,6 @@ def vectoriser_countvectorizer(documents_pretraites):
 
     return vectors, entity_names
   
-def vectoriser_countvectorizer_reduit(documents_pretraites, dimensions_reduites=50):
-    vectorizer = CountVectorizer()
-    vectors = vectorizer.fit_transform(documents_pretraites).toarray()
-    svd = TruncatedSVD(n_components=dimensions_reduites)
-    vectors_reduits = svd.fit_transform(vectors)
-
-    return vectors_reduits
-
 def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, cumulative_variance_threshold=0.95):
     vectorizer = CountVectorizer()
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
