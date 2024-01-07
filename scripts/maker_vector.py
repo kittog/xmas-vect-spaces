@@ -48,7 +48,41 @@ def vectoriser_countvectorizer_reduit(documents_pretraites, dimensions_reduites=
     vectors_reduits = svd.fit_transform(vectors)
 
     return vectors_reduits
+from sklearn.decomposition import PCA
 
+import matplotlib.pyplot as plt
+
+def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, cumulative_variance_threshold=0.95):
+    vectorizer = CountVectorizer()
+    X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
+    cooccurrence_matrix = X_count.T.dot(X_count).toarray()
+    total_sum = cooccurrence_matrix.sum()
+    word_probabilities = cooccurrence_matrix.sum(axis=1) / total_sum
+    context_probs = cooccurrence_matrix / total_sum
+    ppmi_matrix = np.maximum(np.log2(context_probs / np.outer(word_probabilities, word_probabilities)), 0)
+    feature_names = vectorizer.get_feature_names_out()
+    df_ppmi = pd.DataFrame(ppmi_matrix, index=feature_names, columns=feature_names)
+
+    pca = PCA(n_components=n_components)
+    vectors_pca = pca.fit_transform(df_ppmi.values)
+#test pas très concluant à méditer
+    if n_components is None:
+        cumulative_variance_ratio = np.cumsum(pca.explained_variance_ratio_)
+        n_components = np.argmax(cumulative_variance_ratio >= cumulative_variance_threshold) + 1
+
+        pca = PCA(n_components=n_components)
+        vectors_pca = pca.fit_transform(df_ppmi.values)
+
+    entity_names = df_ppmi.index
+
+
+    plt.plot(np.cumsum(pca.explained_variance_ratio_), marker='o')
+    plt.xlabel('Number of Components')
+    plt.ylabel('Cumulative Explained Variance')
+    plt.title('Cumulative Explained Variance vs. Number of Components')
+    plt.show()
+
+    return vectors_pca, entity_names
 
 def sauvegarder_vectors(vectors, feature_names, nom_fichier):
     with open(nom_fichier, 'w', encoding='utf-8') as file:
@@ -77,9 +111,8 @@ def main():
     vectors_countvectorizer, feature_names_countvectorizer = vectoriser_countvectorizer(documents_pretraites)
     sauvegarder_vectors(vectors_countvectorizer, feature_names_countvectorizer, 'vectors_countvectorizer_ppmi.txt')
     
-
-
+    vectoriser_countvectorizerdim,featurenames=vectoriser_countvectorizer_with_pca(documents_pretraites)
+    sauvegarder_vectors(vectoriser_countvectorizerdim, featurenames, 'vectors_countvectorizer_ppmi_pca.txt')
 if __name__ == "__main__":
     main()
     
-
