@@ -16,7 +16,7 @@ def pretraiter_donnees(texte, stop_words_spacy):
     doc = nlp(texte)
     tokens = [token.lemma_ for token in doc if token.text.lower() not in stop_words_spacy and not token.is_punct]
 
-    # Retourner le texte prétraité sous forme de chaîne
+    # A voir si on fait un dico/liste ou un fichier texte simple
     return ' '.join(tokens)
 
 def main():
