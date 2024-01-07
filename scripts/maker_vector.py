@@ -29,8 +29,8 @@ def vectoriser_countvectorizer_reduit(documents_pretraites, dimensions_reduites=
 def sauvegarder_vectors(vectors, feature_names, nom_fichier):
     with open(nom_fichier, 'w', encoding='utf-8') as file:
         for word, vector in zip(feature_names, vectors):
-            vector_str = ' '.join(map(str, vector))
-            file.write(f"{word} {vector_str}\n")
+            vector_w = ' '.join(map(str, vector))
+            file.write(f"{word} {vector_w}\n")
 
 def main():
     path_corpus = 'bla'
