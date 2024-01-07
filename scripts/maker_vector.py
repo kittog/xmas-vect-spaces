@@ -4,18 +4,21 @@ import gensim
 from sklearn.feature_extraction.text import CountVectorizer
 from maker_corpus_clean import lire_contenu_corpus, pretraiter_donnees
 from sklearn.decomposition import PCA
-
+import matplotlib.pyplot as plt
 def vectoriser_word2vec(documents_pretraites):
     model = gensim.models.Word2Vec(sentences=documents_pretraites, vector_size=100, window=5, min_count=1, workers=4)
     
     vectors = []
+    entity_names = []
     for doc in documents_pretraites:
         for lemma in doc:
             if lemma in model.wv:
                 vectors.append(model.wv[lemma])
-    return vectors
+                entity_names.append(lemma)
+    return vectors, entity_names
 
 #test avec ppmi vu en cours
+
 def vectoriser_countvectorizer(documents_pretraites):
     vectorizer = CountVectorizer()
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
@@ -43,9 +46,6 @@ def vectoriser_countvectorizer_reduit(documents_pretraites, dimensions_reduites=
     vectors_reduits = svd.fit_transform(vectors)
 
     return vectors_reduits
-from sklearn.decomposition import PCA
-
-import matplotlib.pyplot as plt
 
 def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, cumulative_variance_threshold=0.95):
     vectorizer = CountVectorizer()
@@ -60,7 +60,7 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, c
 
     pca = PCA(n_components=n_components)
     vectors_pca = pca.fit_transform(df_ppmi.values)
-#test pas très concluant à méditer
+
     if n_components is None:
         cumulative_variance_ratio = np.cumsum(pca.explained_variance_ratio_)
         n_components = np.argmax(cumulative_variance_ratio >= cumulative_variance_threshold) + 1
@@ -70,7 +70,7 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, c
 
     entity_names = df_ppmi.index
 
-
+    # Plot cumulative explained variance
     plt.plot(np.cumsum(pca.explained_variance_ratio_), marker='o')
     plt.xlabel('Number of Components')
     plt.ylabel('Cumulative Explained Variance')
@@ -93,19 +93,16 @@ def sauvegarder_vectors(vectors, feature_names, nom_fichier):
                 file.write(f"{word} {vector_w}\n")
                 saved_vectors.add(key)
 
-
 def main():
     path_corpus = 'corpus'
     stop_words_spacy = spacy.lang.en.stop_words.STOP_WORDS
     contenu_corpus = lire_contenu_corpus(path_corpus)
     documents_pretraites = [pretraiter_donnees(doc, stop_words_spacy) for doc in contenu_corpus]
     
-    vectors_word2vec = vectoriser_word2vec(documents_pretraites)
-    feature_names_word2vec = [word for doc in documents_pretraites for word in doc]
+    vectors_word2vec,feature_names_word2vec = vectoriser_word2vec(documents_pretraites)
     sauvegarder_vectors(vectors_word2vec, feature_names_word2vec, 'vectors_word2vec.txt')
     vectors_countvectorizer, feature_names_countvectorizer = vectoriser_countvectorizer(documents_pretraites)
     sauvegarder_vectors(vectors_countvectorizer, feature_names_countvectorizer, 'vectors_countvectorizer_ppmi.txt')
-    
     vectoriser_countvectorizerdim,featurenames=vectoriser_countvectorizer_with_pca(documents_pretraites)
     sauvegarder_vectors(vectoriser_countvectorizerdim, featurenames, 'vectors_countvectorizer_ppmi_pca.txt')
 if __name__ == "__main__":
