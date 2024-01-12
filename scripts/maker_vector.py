@@ -2,12 +2,15 @@ import os
 import spacy
 import gensim
 from sklearn.feature_extraction.text import CountVectorizer
-from maker_corpus_clean import lire_contenu_corpus, pretraiter_donnees
+from maker_clean_corpus import lire_contenu_corpus, pretraiter_donnees
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 def vectoriser_word2vec(documents_pretraites):
     model = gensim.models.Word2Vec(sentences=documents_pretraites, vector_size=100, window=5, min_count=1, workers=4)
-    
+
     vectors = []
     entity_names = []
     for doc in documents_pretraites:
@@ -18,9 +21,8 @@ def vectoriser_word2vec(documents_pretraites):
     return vectors, entity_names
 
 #test avec ppmi vu en cours
-
 def vectoriser_countvectorizer(documents_pretraites):
-    vectorizer = CountVectorizer()
+    vectorizer = CountVectorizer(min_df=0.3)
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
     cooccurrence_matrix = X_count.T.dot(X_count).toarray()
     total_sum = cooccurrence_matrix.sum()
@@ -38,9 +40,9 @@ def vectoriser_countvectorizer(documents_pretraites):
         entity_names.append(word)
 
     return vectors, entity_names
-  
-def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, cumulative_variance_threshold=0.95):
-    vectorizer = CountVectorizer()
+
+def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=6, cumulative_variance_threshold=0.95):
+    vectorizer = CountVectorizer(min_df=0.3)
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
     cooccurrence_matrix = X_count.T.dot(X_count).toarray()
     total_sum = cooccurrence_matrix.sum()
@@ -67,13 +69,14 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=10, c
     plt.xlabel('Number of Components')
     plt.ylabel('Cumulative Explained Variance')
     plt.title('Cumulative Explained Variance vs. Number of Components')
+    plt.savefig('cumul_var_final.png')
     plt.show()
 
     return vectors_pca, entity_names
 
 def sauvegarder_vectors(vectors, feature_names, nom_fichier):
     with open(nom_fichier, 'w', encoding='utf-8') as file:
-        saved_vectors = set()  
+        saved_vectors = set()
         sorted_indices = np.argsort(feature_names)
         sorted_feature_names = np.array(feature_names)[sorted_indices]
         sorted_vectors = np.array(vectors)[sorted_indices]
@@ -87,16 +90,17 @@ def sauvegarder_vectors(vectors, feature_names, nom_fichier):
 
 def main():
     path_corpus = 'corpus'
-    stop_words_spacy = spacy.lang.en.stop_words.STOP_WORDS
+    nlp = spacy.load("en_core_web_sm")
+    stop_words_spacy = nlp.Defaults.stop_words
     contenu_corpus = lire_contenu_corpus(path_corpus)
     documents_pretraites = [pretraiter_donnees(doc, stop_words_spacy) for doc in contenu_corpus]
-    
+
     vectors_word2vec,feature_names_word2vec = vectoriser_word2vec(documents_pretraites)
     sauvegarder_vectors(vectors_word2vec, feature_names_word2vec, 'vectors_word2vec.txt')
     vectors_countvectorizer, feature_names_countvectorizer = vectoriser_countvectorizer(documents_pretraites)
     sauvegarder_vectors(vectors_countvectorizer, feature_names_countvectorizer, 'vectors_countvectorizer_ppmi.txt')
     vectoriser_countvectorizerdim,featurenames=vectoriser_countvectorizer_with_pca(documents_pretraites)
     sauvegarder_vectors(vectoriser_countvectorizerdim, featurenames, 'vectors_countvectorizer_ppmi_pca.txt')
+
 if __name__ == "__main__":
     main()
-    

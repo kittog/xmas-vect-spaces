@@ -1,6 +1,8 @@
 import numpy as np
+import click
 from sklearn.neighbors import NearestNeighbors
-def find_knn(query_vector, vectors, k=5):
+
+def find_knn(query_vector, vectors, k=20):
     knn = NearestNeighbors(n_neighbors=k, metric='cosine')
     knn.fit(vectors)
     distances, indices = knn.kneighbors([query_vector])
@@ -16,11 +18,11 @@ def read_vectors_file(file_path):
             vectors[word] = vector
     return vectors
 
-def find_knn_from_file(query_word, vectors, feature_names, k=15):
+def find_knn_from_file(query_word, vectors, feature_names, k=20):
     if query_word not in vectors:
         print(f"Le mot '{query_word}' n'est pas présent dans le fichier.")
         return
-    
+
     query_vector = vectors[query_word]
     distances, indices = find_knn(query_vector, list(vectors.values()), k+1)
     filtered_distances = []
@@ -32,23 +34,12 @@ def find_knn_from_file(query_word, vectors, feature_names, k=15):
             filtered_indices.append(ind)
 
     print(f"Les {k} mots les plus similaires à '{query_word}':")
+
     for i, index in enumerate(filtered_indices[:k]):
         print(f"{i + 1}. {feature_names[index]} (distance: {filtered_distances[i]})")
-words_to_find = [
-    "christmas", "present", "light", "snow", "snowflake", "snowball", "bells", "song", "santa","claus",
-    "north", "sleigh", "elf", "reindeer", "angel", "chimney", "ornament", "xmas", "turkey", "fireplace",
-    "decoration", "bear", "cracker", "joy", "family", "mistletoe", "star", "tinsel", "festive", "candle",
-    "beard", "santa", "dinner", "socks", "to wrap up", "christian", "mass", "pudding", "stocking", "holly", "candy", "cold", "gift"
-]
 
 
-file_path = 'vectors_word2vec.txt'
-vectors_word2vec = read_vectors_file(file_path)
-feature_names_word2vec = list(vectors_word2vec.keys())
-
-query_word = "fox"
-find_knn_from_file(query_word, vectors_word2vec, feature_names_word2vec)
-def write_neighbors_to_file(words_to_find, vectors, feature_names, output_file='neighbors_output.txt', k=5):
+def write_neighbors_to_file(words_to_find, vectors, feature_names, output_file='neighbors_output.txt', k=20):
     with open(output_file, 'w', encoding='utf-8') as output:
         for query_word in words_to_find:
             if query_word not in vectors:
@@ -69,6 +60,30 @@ def write_neighbors_to_file(words_to_find, vectors, feature_names, output_file='
                     output.write(f"{i + 1}. {feature_names[index]} (distance: {filtered_distances[i]})\n")
                 output.write("\n")
 
-# Utilisation de la fonction
-write_neighbors_to_file(words_to_find, vectors_word2vec, feature_names_word2vec)
+@click.command()
+@click.option("--vectors", type=str, help="embeddings to use")
+def path_to_vec(vectors):
+    click.echo(f"Using embeddings from {vectors}...")
+    return vectors
 
+def main():
+    vector_file = path_to_vec.main(standalone_mode=False)
+    #words_to_find = [
+    #    "christmas", "present", "light", "snow", "snowflake", "snowball", "bells", "song", "santa","claus",
+    #    "north", "sleigh", "elf", "reindeer", "angel", "chimney", "ornament", "xmas", "turkey", "fireplace",
+    #    "decoration", "bear", "cracker", "joy", "family", "mistletoe", "star", "tinsel", "festive", "candle",
+    #    "beard", "santa", "dinner", "socks", "to wrap up", "christian", "mass", "pudding", "stocking", "holly", "candy", "cold", "gift"
+    #]
+
+    with open("words.txt", "r") as f:
+        words_to_find = f.read().strip().split("\n")
+
+    vectors_word2vec = read_vectors_file(vector_file)
+    feature_names_word2vec = list(vectors_word2vec.keys())
+
+    query_word = "fox"
+    find_knn_from_file(query_word, vectors_word2vec, feature_names_word2vec)
+    write_neighbors_to_file(words_to_find, vectors_word2vec, feature_names_word2vec)
+
+if __name__ == "__main__":
+    main()
