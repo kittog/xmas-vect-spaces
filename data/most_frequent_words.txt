@@ -1,0 +1,26 @@
+Word  Frequency
+10704        say       3187
+2284        come       2089
+7291      little       2035
+6976        know       1714
+2064   christmas       1463
+7358        look       1421
+5324          go       1410
+2005       child       1388
+7541         man       1384
+8539         old       1297
+3018         day       1257
+5350        good       1246
+12435      think       1242
+12540       time       1211
+7239        like       1118
+5619        hand        964
+12330       tell        906
+5457       great        777
+4381         eye        773
+7355        long        759
+4394        face        728
+8322       night        718
+10858        see        715
+13684        way        688
+5752       heart        680
