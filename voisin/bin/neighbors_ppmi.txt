@@ -1,0 +1,307 @@
+Le mot 'christmas' n'est pas présent dans le fichier.
+Le mot 'present' n'est pas présent dans le fichier.
+Le mot 'light' n'est pas présent dans le fichier.
+Le mot 'snow' n'est pas présent dans le fichier.
+Le mot 'snowflake' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'snowball':
+1. hither (distance: 0.0)
+2. darkest (distance: 0.0)
+3. shopkeeper (distance: 0.0)
+4. exceed (distance: 0.0)
+5. onslaught (distance: 0.0)
+6. exclusive (distance: 0.0)
+7. vibration (distance: 0.0)
+8. axe (distance: 0.0)
+9. exalt (distance: 0.0)
+10. disturbed (distance: 0.0)
+
+Le mot 'bells' n'est pas présent dans le fichier.
+Le mot 'song' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'santa':
+1. claus (distance: 0.00042011766650140725)
+2. mamie (distance: 0.02080777427572933)
+3. afterward (distance: 0.039111649616734856)
+4. twinkle (distance: 0.039111649616734856)
+5. reindeer (distance: 0.06199406395443563)
+6. sleigh (distance: 0.07407087599518858)
+7. adopt (distance: 0.07444754691754452)
+8. gift (distance: 0.10298440155221955)
+9. naughty (distance: 0.19223698101148767)
+10. trudge (distance: 0.19223698101148767)
+
+Les 10 mots les plus similaires à 'claus':
+1. santa (distance: 0.00042011766650140725)
+2. mamie (distance: 0.02354050321009371)
+3. twinkle (distance: 0.03920472700881206)
+4. afterward (distance: 0.03920472700881206)
+5. reindeer (distance: 0.05542512179034109)
+6. sleigh (distance: 0.06477460123054901)
+7. adopt (distance: 0.07205977638836836)
+8. gift (distance: 0.10709349989143169)
+9. stocking (distance: 0.1825159594019744)
+10. delay (distance: 0.1903429942563427)
+
+Les 10 mots les plus similaires à 'north':
+1. orphan (distance: 0.03640562124841895)
+2. climb (distance: 0.06295355652133416)
+3. chap (distance: 0.06296715393360652)
+4. mary (distance: 0.07169538064861314)
+5. win (distance: 0.07513022991851537)
+6. following (distance: 0.07521219693308778)
+7. lazy (distance: 0.0757841448770804)
+8. west (distance: 0.08110863120606149)
+9. clown (distance: 0.08381348980043413)
+10. miniature (distance: 0.08381348980043413)
+
+Les 10 mots les plus similaires à 'sleigh':
+1. reindeer (distance: 0.017681973119814565)
+2. stocking (distance: 0.0643807940753468)
+3. claus (distance: 0.06477460123054901)
+4. santa (distance: 0.07407087599518858)
+5. wee (distance: 0.07956950804150842)
+6. twinkle (distance: 0.10601396451115919)
+7. afterward (distance: 0.10601396451115919)
+8. adopt (distance: 0.10802284881438584)
+9. grandma (distance: 0.11504773092917531)
+10. twas (distance: 0.1174161386626954)
+
+Les 10 mots les plus similaires à 'elf':
+1. roadside (distance: 0.0)
+2. wheat (distance: 0.0)
+3. scour (distance: 0.0)
+4. comet (distance: 0.0)
+5. amusement (distance: 0.003555393098553572)
+6. lawn (distance: 0.003555393098553572)
+7. scamper (distance: 0.00993037226175042)
+8. shortly (distance: 0.00993037226175042)
+9. spire (distance: 0.012368100252314607)
+10. except (distance: 0.02236633309928293)
+
+Les 10 mots les plus similaires à 'reindeer':
+1. sleigh (distance: 0.017681973119814565)
+2. claus (distance: 0.05542512179034109)
+3. santa (distance: 0.06199406395443563)
+4. wee (distance: 0.07305892828171234)
+5. rubber (distance: 0.09805614209441171)
+6. stocking (distance: 0.114388594587855)
+7. worsted (distance: 0.12337586565728609)
+8. colored (distance: 0.12337586565728609)
+9. mamie (distance: 0.12570770785465635)
+10. accomplish (distance: 0.1285815087713016)
+
+Les 10 mots les plus similaires à 'angel':
+1. lame (distance: 0.02838498338078177)
+2. bedside (distance: 0.04118290128859825)
+3. birthday (distance: 0.04546251790993583)
+4. jelly (distance: 0.05600674080065615)
+5. radiant (distance: 0.05619313741325804)
+6. proceeding (distance: 0.05619313741325804)
+7. loud (distance: 0.05724323418316313)
+8. scrub (distance: 0.0668513196872369)
+9. cost (distance: 0.06844926373116844)
+10. trunk (distance: 0.06852404387902222)
+
+Les 10 mots les plus similaires à 'chimney':
+1. feast (distance: 0.009315268988476233)
+2. roast (distance: 0.015094993176778648)
+3. bloom (distance: 0.020859581995468224)
+4. strut (distance: 0.02654979173890415)
+5. nick (distance: 0.02654979173890415)
+6. hail (distance: 0.02654979173890415)
+7. penny (distance: 0.03196911803758162)
+8. sunny (distance: 0.03261725746972832)
+9. porch (distance: 0.03322127311833034)
+10. tune (distance: 0.04055490575111009)
+
+Les 10 mots les plus similaires à 'ornament':
+1. morsel (distance: 0.0)
+2. mat (distance: 0.0)
+3. backwards (distance: 0.0)
+4. overshadow (distance: 0.0)
+5. complexion (distance: 0.0)
+6. toilet (distance: 0.0)
+7. groan (distance: 0.0)
+8. drooping (distance: 0.0)
+9. oftener (distance: 0.0)
+10. manly (distance: 0.0)
+
+Le mot 'xmas' n'est pas présent dans le fichier.
+Le mot 'turkey' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'fireplace':
+1. mince (distance: 0.003886340343243977)
+2. back (distance: 0.008514096135890381)
+3. skirt (distance: 0.01230521963411868)
+4. musical (distance: 0.015934152042636485)
+5. herd (distance: 0.02201207923539794)
+6. robin (distance: 0.025679609083404498)
+7. bloom (distance: 0.0278504014635792)
+8. chamber (distance: 0.02815729176837012)
+9. odd (distance: 0.02881146538089352)
+10. forth (distance: 0.030810425038813594)
+
+Les 10 mots les plus similaires à 'decoration':
+1. print (distance: 0.0)
+2. heave (distance: 0.0)
+3. interview (distance: 0.0)
+4. brim (distance: 0.027084935468956406)
+5. lend (distance: 0.0297374865419886)
+6. giggle (distance: 0.038334677450764465)
+7. style (distance: 0.059182041621627546)
+8. trice (distance: 0.06723531702138408)
+9. snowy (distance: 0.06723531702138408)
+10. relish (distance: 0.06723531702138408)
+
+Le mot 'bear' n'est pas présent dans le fichier.
+Le mot 'cracker' n'est pas présent dans le fichier.
+Le mot 'joy' n'est pas présent dans le fichier.
+Le mot 'family' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'mistletoe':
+1. convenient (distance: 0.008934613914857281)
+2. blaze (distance: 0.012946721765801361)
+3. meat (distance: 0.01649684119351036)
+4. button (distance: 0.018745181088238416)
+5. berry (distance: 0.024594175918532968)
+6. jovial (distance: 0.025355577928817263)
+7. intent (distance: 0.025355577928817263)
+8. range (distance: 0.025355577928817263)
+9. benevolence (distance: 0.025355577928817263)
+10. fain (distance: 0.025701588704932776)
+
+Les 10 mots les plus similaires à 'star':
+1. tin (distance: 0.01202524999495358)
+2. garland (distance: 0.027017218178607916)
+3. genteel (distance: 0.027508289894249027)
+4. unto (distance: 0.027508289894249027)
+5. project (distance: 0.027508289894249027)
+6. hood (distance: 0.03109488778914049)
+7. cram (distance: 0.03252319930091885)
+8. seldom (distance: 0.03509386036293527)
+9. plant (distance: 0.04301877170057833)
+10. employ (distance: 0.043235765408510374)
+
+Le mot 'tinsel' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'festive':
+1. polished (distance: 0.017505597481638935)
+2. melody (distance: 0.028819209313897476)
+3. precede (distance: 0.029988331108135702)
+4. coachman (distance: 0.029988331108135702)
+5. abroad (distance: 0.03300421803236264)
+6. dish (distance: 0.033930082815023965)
+7. land (distance: 0.03494279137570766)
+8. festival (distance: 0.03552276314250724)
+9. accomplishment (distance: 0.036678647998785396)
+10. bark (distance: 0.03698307446137261)
+
+Le mot 'candle' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'beard':
+1. hill (distance: 0.02937224436110819)
+2. disguise (distance: 0.08315244003649336)
+3. crust (distance: 0.11974061109168643)
+4. clatter (distance: 0.12507024312467174)
+5. nook (distance: 0.1257309724691028)
+6. monkey (distance: 0.1257309724691028)
+7. grown (distance: 0.1257309724691028)
+8. extra (distance: 0.1257309724691028)
+9. queen (distance: 0.1566291777779929)
+10. string (distance: 0.1593723911453675)
+
+Les 10 mots les plus similaires à 'santa':
+1. claus (distance: 0.00042011766650140725)
+2. mamie (distance: 0.02080777427572933)
+3. afterward (distance: 0.039111649616734856)
+4. twinkle (distance: 0.039111649616734856)
+5. reindeer (distance: 0.06199406395443563)
+6. sleigh (distance: 0.07407087599518858)
+7. adopt (distance: 0.07444754691754452)
+8. gift (distance: 0.10298440155221955)
+9. naughty (distance: 0.19223698101148767)
+10. trudge (distance: 0.19223698101148767)
+
+Le mot 'dinner' n'est pas présent dans le fichier.
+Le mot 'socks' n'est pas présent dans le fichier.
+Le mot 'to wrap up' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'christian':
+1. frightful (distance: 1.5543122344752192e-15)
+2. apprentice (distance: 1.5543122344752192e-15)
+3. sixpence (distance: 1.5543122344752192e-15)
+4. crusoe (distance: 1.5543122344752192e-15)
+5. quantity (distance: 1.5543122344752192e-15)
+6. dealing (distance: 1.5543122344752192e-15)
+7. brightness (distance: 1.5543122344752192e-15)
+8. hinge (distance: 0.0068815180064421)
+9. steel (distance: 0.0068815180064421)
+10. footstool (distance: 0.0068815180064421)
+
+Les 10 mots les plus similaires à 'mass':
+1. beheld (distance: 2.220446049250313e-16)
+2. healthy (distance: 2.220446049250313e-16)
+3. gallant (distance: 2.220446049250313e-16)
+4. perseverance (distance: 2.220446049250313e-16)
+5. adorn (distance: 2.220446049250313e-16)
+6. shrink (distance: 2.220446049250313e-16)
+7. headed (distance: 2.220446049250313e-16)
+8. utensil (distance: 2.220446049250313e-16)
+9. accumulate (distance: 2.220446049250313e-16)
+10. loneliness (distance: 2.220446049250313e-16)
+
+Les 10 mots les plus similaires à 'pudding':
+1. coal (distance: 0.009947209590739914)
+2. size (distance: 0.037690064932576206)
+3. clap (distance: 0.03849944200458855)
+4. pig (distance: 0.03911343971038894)
+5. convenient (distance: 0.040501925818518414)
+6. gravy (distance: 0.04061463367579221)
+7. dim (distance: 0.04061463367579221)
+8. bargain (distance: 0.04061463367579221)
+9. issue (distance: 0.04071416881383039)
+10. brow (distance: 0.04073407109949079)
+
+Les 10 mots les plus similaires à 'stocking':
+1. puss (distance: 0.030042735754394534)
+2. papa (distance: 0.047244909286416226)
+3. grandma (distance: 0.05429664008792767)
+4. crow (distance: 0.05738912108402883)
+5. nursery (distance: 0.05738912108402883)
+6. twas (distance: 0.05738912108402883)
+7. willing (distance: 0.05748319668494151)
+8. outgrow (distance: 0.05748319668494151)
+9. sleeping (distance: 0.05748319668494151)
+10. sleigh (distance: 0.0643807940753468)
+
+Les 10 mots les plus similaires à 'holly':
+1. berry (distance: 0.0048558498716346765)
+2. illustrate (distance: 0.014656895897841804)
+3. elder (distance: 0.014656895897841804)
+4. main (distance: 0.014656895897841804)
+5. grate (distance: 0.022920434429893444)
+6. chorus (distance: 0.022920434429893444)
+7. fain (distance: 0.022920434429893444)
+8. proportion (distance: 0.022920434429893444)
+9. dangle (distance: 0.024480344132776444)
+10. herd (distance: 0.024715424900533578)
+
+Les 10 mots les plus similaires à 'candy':
+1. grandma (distance: 0.03477401733850749)
+2. crow (distance: 0.03747440192028617)
+3. nursery (distance: 0.03747440192028617)
+4. twas (distance: 0.03747440192028617)
+5. jim (distance: 0.046495903531048155)
+6. papa (distance: 0.051173547449993695)
+7. maker (distance: 0.0646124510059286)
+8. grumble (distance: 0.0646124510059286)
+9. brighten (distance: 0.0646124510059286)
+10. mrs (distance: 0.0646124510059286)
+
+Le mot 'cold' n'est pas présent dans le fichier.
+Les 10 mots les plus similaires à 'gift':
+1. naughty (distance: 0.05325600610373471)
+2. trudge (distance: 0.05325600610373471)
+3. mamie (distance: 0.09184348292679068)
+4. santa (distance: 0.10298440155221955)
+5. claus (distance: 0.10709349989143169)
+6. twinkle (distance: 0.1095751651456418)
+7. afterward (distance: 0.1095751651456418)
+8. jerk (distance: 0.13614411544436833)
+9. adopt (distance: 0.13719504749339284)
+10. envy (distance: 0.17718760901290453)
+
