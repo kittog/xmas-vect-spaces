@@ -2,7 +2,7 @@ import numpy as np
 import click
 from sklearn.neighbors import NearestNeighbors
 
-def find_knn(query_vector, vectors, k=20):
+def find_knn(query_vector, vectors, k=10):
     knn = NearestNeighbors(n_neighbors=k, metric='cosine')
     knn.fit(vectors)
     distances, indices = knn.kneighbors([query_vector])
@@ -18,7 +18,7 @@ def read_vectors_file(file_path):
             vectors[word] = vector
     return vectors
 
-def find_knn_from_file(query_word, vectors, feature_names, k=20):
+def find_knn_from_file(query_word, vectors, feature_names, k=10):
     if query_word not in vectors:
         print(f"Le mot '{query_word}' n'est pas présent dans le fichier.")
         return
@@ -39,7 +39,7 @@ def find_knn_from_file(query_word, vectors, feature_names, k=20):
         print(f"{i + 1}. {feature_names[index]} (distance: {filtered_distances[i]})")
 
 
-def write_neighbors_to_file(words_to_find, vectors, feature_names, output_file='neighbors_output.txt', k=20):
+def write_neighbors_to_file(words_to_find, vectors, feature_names, output_file='neighbors_output.txt', k=10):
     with open(output_file, 'w', encoding='utf-8') as output:
         for query_word in words_to_find:
             if query_word not in vectors:
@@ -75,7 +75,7 @@ def main():
     #    "beard", "santa", "dinner", "socks", "to wrap up", "christian", "mass", "pudding", "stocking", "holly", "candy", "cold", "gift"
     #]
 
-    with open("words.txt", "r") as f:
+    with open("data/letter_to_santa_claus.txt", "r") as f:
         words_to_find = f.read().strip().split("\n")
 
     vectors_word2vec = read_vectors_file(vector_file)

@@ -41,7 +41,7 @@ def vectoriser_countvectorizer(documents_pretraites):
 
     return vectors, entity_names
 
-def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=6, cumulative_variance_threshold=0.95):
+def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=15, cumulative_variance_threshold=0.95):
     vectorizer = CountVectorizer(min_df=0.3)
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
     cooccurrence_matrix = X_count.T.dot(X_count).toarray()
