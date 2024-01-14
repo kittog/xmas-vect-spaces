@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 def vectoriser_word2vec(documents_pretraites):
+    '''Vectorisation avec Word2Vec'''
     model = gensim.models.Word2Vec(sentences=documents_pretraites, vector_size=100, window=5, min_count=1, workers=4)
 
     vectors = []
@@ -20,12 +21,15 @@ def vectoriser_word2vec(documents_pretraites):
                 entity_names.append(lemma)
     return vectors, entity_names
 
-#test avec ppmi vu en cours
 def vectoriser_countvectorizer(documents_pretraites):
+    '''Vectorisation avec CountVectorizer()'''
+    # initilisation
     vectorizer = CountVectorizer(min_df=0.3)
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
+    # matrice de cooccurrence
     cooccurrence_matrix = X_count.T.dot(X_count).toarray()
     total_sum = cooccurrence_matrix.sum()
+    # ppmi
     word_probabilities = cooccurrence_matrix.sum(axis=1) / total_sum
     context_probs = cooccurrence_matrix / total_sum
     ppmi_matrix = np.maximum(np.log2(context_probs / np.outer(word_probabilities, word_probabilities)), 0)
@@ -42,10 +46,13 @@ def vectoriser_countvectorizer(documents_pretraites):
     return vectors, entity_names
 
 def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=15, cumulative_variance_threshold=0.95):
+    # initialisation
     vectorizer = CountVectorizer(min_df=0.3)
     X_count = vectorizer.fit_transform([' '.join(doc) for doc in documents_pretraites])
+    # matrice de coocurrence
     cooccurrence_matrix = X_count.T.dot(X_count).toarray()
     total_sum = cooccurrence_matrix.sum()
+    # ppmi
     word_probabilities = cooccurrence_matrix.sum(axis=1) / total_sum
     context_probs = cooccurrence_matrix / total_sum
     ppmi_matrix = np.maximum(np.log2(context_probs / np.outer(word_probabilities, word_probabilities)), 0)
@@ -55,6 +62,7 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=15, c
     pca = PCA(n_components=n_components)
     vectors_pca = pca.fit_transform(df_ppmi.values)
 
+    # déterminer le nombre de composantes
     if n_components is None:
         cumulative_variance_ratio = np.cumsum(pca.explained_variance_ratio_)
         n_components = np.argmax(cumulative_variance_ratio >= cumulative_variance_threshold) + 1
@@ -64,7 +72,7 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=15, c
 
     entity_names = df_ppmi.index
 
-    # Plot cumulative explained variance
+    # graphique de la variance cumulative expliquée
     plt.plot(np.cumsum(pca.explained_variance_ratio_), marker='o')
     plt.xlabel('Number of Components')
     plt.ylabel('Cumulative Explained Variance')
@@ -75,6 +83,7 @@ def vectoriser_countvectorizer_with_pca(documents_pretraites, n_components=15, c
     return vectors_pca, entity_names
 
 def sauvegarder_vectors(vectors, feature_names, nom_fichier):
+    '''Sauvegarde des embeddings.'''
     with open(nom_fichier, 'w', encoding='utf-8') as file:
         saved_vectors = set()
         sorted_indices = np.argsort(feature_names)

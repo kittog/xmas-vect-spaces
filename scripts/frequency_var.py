@@ -10,7 +10,7 @@ scores = pd.read_csv("data/var_scores_k10.txt", sep=' ')
 xmas = pd.read_csv("data/xmas_freq.txt", sep="   ")
 xmas_scores = pd.read_csv("data/var_score_xmas_10.txt")
 
-
+# agencement des dataframes
 df['W2V/PPMI'] = scores['W2V/PPMI']
 df['W2V/PCA'] = scores['W2V/PCA']
 df['PPMI/PCA'] = scores['PPMI/PCA']
@@ -21,8 +21,10 @@ xmas['W2V/PCA'] = xmas_scores['W2V/PCA']
 xmas['PPMI/PCA'] = xmas_scores['PPMI/PCA']
 xmas['Type'] = ['xmas'] * 24
 
+# concaténation
 frames = [df, xmas]
 result = pd.concat(frames)
 
+# plot
 sn.scatterplot(data=result, x='Frequency', y='PPMI/PCA', hue='Type', style='Type', markers=['o', '^'], alpha=0.9)
 plt.show()

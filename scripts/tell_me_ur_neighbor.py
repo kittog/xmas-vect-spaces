@@ -68,12 +68,6 @@ def path_to_vec(vectors):
 
 def main():
     vector_file = path_to_vec.main(standalone_mode=False)
-    #words_to_find = [
-    #    "christmas", "present", "light", "snow", "snowflake", "snowball", "bells", "song", "santa","claus",
-    #    "north", "sleigh", "elf", "reindeer", "angel", "chimney", "ornament", "xmas", "turkey", "fireplace",
-    #    "decoration", "bear", "cracker", "joy", "family", "mistletoe", "star", "tinsel", "festive", "candle",
-    #    "beard", "santa", "dinner", "socks", "to wrap up", "christian", "mass", "pudding", "stocking", "holly", "candy", "cold", "gift"
-    #]
 
     with open("data/letter_to_santa_claus.txt", "r") as f:
         words_to_find = f.read().strip().split("\n")
@@ -81,6 +75,7 @@ def main():
     vectors_word2vec = read_vectors_file(vector_file)
     feature_names_word2vec = list(vectors_word2vec.keys())
 
+    # exemple avec affichage en terminal
     query_word = "fox"
     find_knn_from_file(query_word, vectors_word2vec, feature_names_word2vec)
     write_neighbors_to_file(words_to_find, vectors_word2vec, feature_names_word2vec)

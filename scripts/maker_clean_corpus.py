@@ -51,7 +51,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-    from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 
 def main():
